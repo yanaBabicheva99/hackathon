@@ -6,17 +6,17 @@ import type {
     FetchArgs,
     FetchBaseQueryError,
 } from '@reduxjs/toolkit/query';
-import {createToken, removeToken} from "../services/auth";
+import {createToken, removeToken} from "../services/tokenService";
 
 
-const baseUrl = `${process.env.API_URL}/api/`;
+const baseUrl = `http://localhost:5000/api/`;
 
  const baseQuery = fetchBaseQuery(
     {
         baseUrl,
-        prepareHeaders: (headers, { getState }) => {
+        prepareHeaders: (headers, { getState, endpoint }) => {
             const token = (getState() as RootState).token.tokenValue;
-            if (token) {
+            if (token && endpoint !== 'refresh') {
                 headers.set('authorization', `Bearer ${token}`);
                 headers.set('content-type', 'text/plain');
             }
@@ -34,15 +34,17 @@ const customFetchBase: BaseQueryFn<
     let result = await baseQuery(args, api, extraOptions)
     if (result.error && result.error.status === 401) {
         const refreshResult = await baseQuery({
-            credentials: 'include',
-            url: 'refresh'
-        }, api, extraOptions);
+                credentials: 'include',
+                url: 'refresh'
+            },
+            {...api, endpoint: 'refresh'},
+            extraOptions);
 
         if (refreshResult.data) {
             api.dispatch(createToken(refreshResult.data as any));
             result = await baseQuery(args, api, extraOptions)
         } else {
-            api.dispatch(removeToken())
+            // api.dispatch(removeToken())
         }
     }
     return result

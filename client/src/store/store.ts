@@ -2,7 +2,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
 import {userAPI} from "../services/userService";
 import {authAPI} from "../services/authService";
-import tokenReducer from "../services/auth";
+import tokenReducer from "../services/tokenService";
 
 
 const rootReducer = combineReducers({

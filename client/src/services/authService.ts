@@ -11,14 +11,16 @@ export const authAPI =  createApi({
             query: (content) => ({
                 url: 'registration',
                 method: 'POST',
-                body: content
+                body: content,
+                credentials: 'include',
             })
         }),
         signIn: build.mutation({
             query: (content) => ({
                 url: 'login',
                 method: 'POST',
-                body: content
+                body: content,
+                credentials: 'include',
             })
         }),
         logout: build.mutation({

@@ -2,13 +2,15 @@ import React from 'react';
 
 import {createStore} from './store/store';
 import {Provider} from "react-redux";
+import {Routes} from './hooks/routs';
+
 
 const store = createStore();
 
 function App() {
   return (
     <Provider store={store}>
-      <h1>Hello</h1>
+        <Routes />
     </Provider>
   );
 }
