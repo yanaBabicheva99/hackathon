@@ -1,4 +1,5 @@
 const UserModel = require('../models/userModel');
+const Role = require('../models/roleModel');
 const bcrypt = require('bcrypt');
 const uuid = require('uuid');
 const mailService = require('./mail-service');
@@ -15,7 +16,8 @@ class UserService {
       const hashPassword = await bcrypt.hash(password, 3);
       const activationLink = uuid.v4();
 
-      const user = await UserModel.create({ email, password: hashPassword, activationLink });
+      const userRole = await Role.findOne({value: "USER"});
+      const user = await UserModel.create({ email, password: hashPassword, activationLink, role: userRole.value});
       await mailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`);
 
       const userDto = new UserDto(user);
@@ -87,6 +89,15 @@ class UserService {
 
    async getUser(id) {
      const user = await UserModel.findOne({_id: id});
+     return user;
+   }
+
+   async updateRole(id, content) {
+     const user = await UserModel.findOneAndUpdate(
+       {_id: id},
+       {$set: content},
+       {new: true}
+     );
      return user;
    }
 }

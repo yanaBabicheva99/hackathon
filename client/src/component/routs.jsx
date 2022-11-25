@@ -3,15 +3,14 @@ import { Route, Routes as Switch, Navigate } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 import { getToken } from "../services/tokenService";
-import Main from "./main";
+import Main from "./Main/main";
 import Login from "./LoginPage/login";
 import Personal from "./PersonalCabinet/personal";
+import Register from "./RegisterPage/register";
+import {Exhibition} from './Exhibition/Exhibition';
 
 export const Routes = () => {
   const select = useSelector(getToken());
-  console.log("select");
-  console.log(select);
-  debugger;
   if (select) {
     return (
       <Switch>
@@ -23,8 +22,15 @@ export const Routes = () => {
     return (
       <Switch>
         <Route path="/login" element={<Login />}></Route>
+
         <Route path="*" element={<Navigate to="/login" replace />} />
                 <Route path="/personalpage" element={<Personal />}></Route>
+
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/" element={<Main />}></Route>
+          <Route path={'/exhibition'} element={<Exhibition />} />
+        {/*<Route path="*" element={<Navigate to="/login" replace />} />*/}
+
       </Switch>
     );
   }
