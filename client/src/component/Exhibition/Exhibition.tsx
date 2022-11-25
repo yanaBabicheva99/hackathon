@@ -8,7 +8,7 @@ const items = [{ title: 'first step' }, { title: 'second step' }, { title: 'thir
 export const Exhibition = () => {
     return (
         <div className={'main'}>
-            <Card title={'Выставка какая-то там ( очень крутая )'} extra={<MenuOutlined/>}>
+            <Card title={'Выставка какая-то там ( очень крутая )'} extra={<MenuOutlined/>} style={{height: '1000px'}}>
                 <div className={'card-wrapper'}>
                     <img src={require('../Main/ExhibitionItem/AntonAdministator.jpg')} style={{width: '300px', height:'300px', border: '1px solid whitesmoke', borderRadius: '20px'}}/>
                     <hr style={{width: '100%', border: '1px solid whitesmoke'}} />

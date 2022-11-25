@@ -1,0 +1,17 @@
+.singleq-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.multiq-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.freeq-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

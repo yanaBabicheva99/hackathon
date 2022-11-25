@@ -8,6 +8,9 @@ import Login from "./LoginPage/login";
 import Personal from "./PersonalCabinet/personal";
 import Register from "./RegisterPage/register";
 import {Exhibition} from './Exhibition/Exhibition';
+import {SingleQuestion} from "./QuestionsTmp/SingleQuestion";
+import {MultiQuestion} from "./QuestionsTmp/MultiQuestion";
+import {FreeQuestion} from "./QuestionsTmp/FreeQuestion";
 
 export const Routes = () => {
   const select = useSelector(getToken());
@@ -30,6 +33,9 @@ export const Routes = () => {
         <Route path="/" element={<Main />}></Route>
           <Route path={'/exhibition'} element={<Exhibition />} />
         {/*<Route path="*" element={<Navigate to="/login" replace />} />*/}
+          <Route path={'/singlequestion'} element={<SingleQuestion />} />
+          <Route path={'/multiquestion'} element={<MultiQuestion />} />
+          <Route path={'/freequestion'} element={<FreeQuestion />} />
 
       </Switch>
     );
