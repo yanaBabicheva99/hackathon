@@ -7,7 +7,8 @@ import Main from "./Main/main";
 import Login from "./LoginPage/login";
 import Personal from "./PersonalCabinet/personal";
 import Register from "./RegisterPage/register";
-import {Exhibition} from './Exhibition/Exhibition';
+import { Exhibition } from './Exhibition/Exhibition';
+import Headline from "./Head/Headline";
 
 export const Routes = () => {
   const select = useSelector(getToken());
@@ -24,11 +25,11 @@ export const Routes = () => {
         <Route path="/login" element={<Login />}></Route>
 
         <Route path="*" element={<Navigate to="/login" replace />} />
-                <Route path="/personalpage" element={<Personal />}></Route>
-
+        <Route path="/personalpage" element={<Personal />}></Route>
+        <Route path="/headline" element={<Headline />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/" element={<Main />}></Route>
-          <Route path={'/exhibition'} element={<Exhibition />} />
+        <Route path={'/exhibition'} element={<Exhibition />} />
         {/*<Route path="*" element={<Navigate to="/login" replace />} />*/}
 
       </Switch>

@@ -3,6 +3,7 @@ import './personal.css';
 import { Layout, Input, Card, Avatar, Button, } from 'antd';
 import { UserOutlined, FileAddOutlined } from '@ant-design/icons';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import Headline from '../Head/Headline';
 
 
 const { Header, Content, Footer } = Layout;
@@ -18,16 +19,16 @@ const Personal: React.FC = () => {
           <Card title="Пользователь" extra={<a href="#">Изменить</a>}>
             <div className="card-redact">
               <div>
-                <Avatar size={96} icon={<UserOutlined />} />
+                <Avatar size={96} src={require('../Main/ExhibitionItem/AntonAdministator.jpg')} />
               </div>
               <Card type="inner" title="Фамилия Имя Отчество" style={{ width: '100%', marginLeft: '15px' }} >
                 Попов Жопа Очкович
               </Card>
-              </div>
-              <Card type="inner" title="Заметки" style={{ marginLeft: '111px', marginTop: '15px' }} >
-                <TextArea rows={4} />
-                <br />
-              </Card>  
+            </div>
+            <Card type="inner" title="Заметки" style={{ marginLeft: '111px', marginTop: '15px' }} >
+              <TextArea rows={4} />
+              <br />
+            </Card>
           </Card>
         </div>
       </Content>
