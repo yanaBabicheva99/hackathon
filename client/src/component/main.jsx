@@ -3,7 +3,8 @@ import { useGetUsersQuery } from '../services/userService';
 
 const Main = () => {
   const {data, error, isLoading} = useGetUsersQuery();
-  console.log('err', error)
+  console.log('err', error);
+
 
 
   if (isLoading) {
@@ -11,7 +12,7 @@ const Main = () => {
   }
   console.log(data, error);
 
-
+console.log('nerio')
 
   return (
     <div>

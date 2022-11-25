@@ -2,7 +2,7 @@ import React from 'react';
 
 import {createStore} from './store/store';
 import {Provider} from "react-redux";
-import {Routes} from './hooks/routs';
+import {Routes} from './component/routs';
 
 
 const store = createStore();

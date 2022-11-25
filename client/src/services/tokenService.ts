@@ -13,16 +13,22 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         created(state, action: PayloadAction<InfoRefresh<UserDto>>) {
-                if (!state.userId) {
-                    localStorage.setItem('token', action.payload.accessToken);
-                    localStorage.setItem('userId', action.payload.user.id);
+                // if (!state.userId) {
+                //     localStorage.setItem('token', action.payload.accessToken);
+                //     localStorage.setItem('userId', action.payload.user.id);
+                //
+                //     state.tokenValue = action.payload.accessToken;
+                //     state.userId = action.payload.user.id;
+                // } else {
+                //     localStorage.setItem('token', action.payload.accessToken);
+                //     state.tokenValue = action.payload.accessToken;
+                // }
 
-                    state.tokenValue = action.payload.accessToken;
-                    state.userId = action.payload.user.id;
-                } else {
-                    localStorage.setItem('token', action.payload.accessToken);
-                    state.tokenValue = action.payload.accessToken;
-                }
+                localStorage.setItem('token', action.payload.accessToken);
+                localStorage.setItem('userId', action.payload.user.id);
+
+                state.tokenValue = action.payload.accessToken;
+                state.userId = action.payload.user.id;
 
         },
         removed(state) {
