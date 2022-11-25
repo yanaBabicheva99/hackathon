@@ -16,6 +16,10 @@ const UserSchema = new Schema({
   },
   activationLink: {
     type: String,
+  },
+  role: {
+    type: String,
+    ref: 'Role',
   }
 });
 

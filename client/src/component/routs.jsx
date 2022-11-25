@@ -8,6 +8,7 @@ import Login from './login';
 
 export const Routes = () => {
   const select = useSelector(getToken());
+  console.log(select);
   if (select) {
     return (
       <Switch>
