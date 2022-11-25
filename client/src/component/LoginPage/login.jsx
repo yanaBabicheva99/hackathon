@@ -2,10 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { Input, Button, Card } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from 'react-toastify';
+
 import { useSignInMutation } from "../../services/authService";
 import { createToken, getToken } from "../../services/tokenService";
-import { useDispatch, useSelector } from "react-redux";
+
+import { Input, Button, Card } from "antd";
 import "./login.css";
 import { Layout } from "antd";
 const { Header, Footer, Sider, Content } = Layout;
@@ -28,11 +31,12 @@ const LoginForm = () => {
   };
 
   const handleSubmit = async (content) => {
+    console.log('uiu3')
     console.log(content);
     signIn(content)
       .unwrap()
       .then((data) => dispatch(createToken(data)))
-      .catch((err) => console.log(err));
+      .catch(({data: {message}}) => toast.error(message));
   };
 
   // const {data, error, isLoading} = useGetUsersQuery();
@@ -65,9 +69,8 @@ const LoginForm = () => {
                   value={values.email}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  touched={touched.email}
-                  errors={errors.email}
                 />
+                {errors.email && touched.email && <p>{errors.email}</p>}
 
                 <Input
                   className="login__input"
@@ -76,11 +79,10 @@ const LoginForm = () => {
                   value={values.password}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  touched={touched.password}
-                  errors={errors.password}
                 />
+                {errors.password && touched.password && <p>{errors.password}</p>}
 
-                <Button type="primary" className="login__button">
+                <Button type="primary" htmlType='submit' className="login__button">
                   Войти
                 </Button>
               </form>
