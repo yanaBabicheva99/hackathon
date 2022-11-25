@@ -10,9 +10,6 @@ import {Exhibition} from './Exhibition/Exhibition';
 
 export const Routes = () => {
   const select = useSelector(getToken());
-  console.log("select");
-  console.log(select);
-  debugger;
   if (select) {
     return (
       <Switch>
