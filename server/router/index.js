@@ -14,8 +14,8 @@ router.post('/role', roleController.createRole);
 
 router.get('/activate/:link', userController.activate);
 router.get('/refresh', userController.refresh);
-router.get('/users', [authMiddleware, roleMiddleware('USER')], userController.getUsers);
+router.get('/users', [authMiddleware, roleMiddleware('ADMIN')], userController.getUsers);
 router.get('/user/:id', authMiddleware, userController.getUser);
-router.patch('/changeRole/:id', [authMiddleware, roleMiddleware('ADMIN')], userController.changeRole)
+
 
 module.exports = router;
