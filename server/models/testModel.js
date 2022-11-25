@@ -1,10 +1,6 @@
 const { Schema, model } = require("mongoose");
 
 const TestSchema = new Schema({
-  tasks_id: {
-    type: Schema.Types.ObjectId,
-    ref: "Task",
-  },
   name: {
     type: String,
     require: true,
@@ -12,6 +8,12 @@ const TestSchema = new Schema({
   description: {
     type: String,
   },
+  tasks_id: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Task",
+    },
+  ],
 });
 
 module.exports = model("Test", TestSchema);

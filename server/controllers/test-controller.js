@@ -13,7 +13,7 @@ class TestController {
   };
   change = async (req, res, next) => {
     try {
-      const { id } = req.query;
+      const { id } = req.params;
       const candidate = await testModel.findOne({ _id: id });
       if (!candidate)
         throw res.status(400).json({
@@ -29,7 +29,7 @@ class TestController {
   };
   delete = async (req, res, next) => {
     try {
-      const { id } = req.query;
+      const { id } = req.params;
       const candidate = await testModel.findOne({ _id: id });
       if (!candidate)
         throw res.status(400).json({

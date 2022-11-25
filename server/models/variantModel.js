@@ -1,12 +1,14 @@
-const {Schema, model} = require('mongoose');
+const { Schema, model } = require("mongoose");
 
 const VariantSchema = new Schema({
   value: {
     type: String,
-    require: true
+    require: true,
   },
   isAnswer: {
     type: Boolean,
-    default: false
-  }
-})
+    default: false,
+  },
+});
+
+module.exports = model("Variant", VariantSchema);
