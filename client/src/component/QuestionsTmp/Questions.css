@@ -1,0 +1,44 @@
+.single-wrapper {
+    width: 500px;
+}
+
+.multi-wrapper {
+    width: 500px;
+}
+
+.free-wrapper {
+    width: 500px;
+}
+
+.singleq-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.multiq-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.freeq-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media screen and (max-width: 900px) {
+    .single-wrapper {
+        width: 100%;
+    }
+
+    .multi-wrapper {
+        width: 100%;
+    }
+
+    .free-wrapper {
+        width: 100%;
+    }
+
+}
