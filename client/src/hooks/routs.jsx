@@ -1,16 +1,19 @@
 import React from "react";
-import { Route, Routes as Switch, Navigate } from "react-router-dom";
-
 import { useSelector } from "react-redux";
 import { getToken } from "../services/tokenService";
-import Main from "./main";
-import Login from "./LoginPage/login";
+import { Route, Routes as Switch, Navigate } from "react-router-dom";
+import Main from "../component/main";
+import Login from "../component/LoginPage/login";
 
 export const Routes = () => {
+  // const select = localStorage.getItem('token');
+
   const select = useSelector(getToken());
-  console.log("select");
+  console.log(getToken());
   console.log(select);
-  debugger;
+
+  // console.log(select);
+
   if (select) {
     return (
       <Switch>
@@ -22,7 +25,10 @@ export const Routes = () => {
     return (
       <Switch>
         <Route path="/login" element={<Login />}></Route>
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        {/*<Route*/}
+        {/*  path='*'*/}
+        {/*  element={<Navigate to='/login' replace />}*/}
+        {/*/>*/}
       </Switch>
     );
   }
