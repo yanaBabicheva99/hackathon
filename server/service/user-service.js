@@ -91,6 +91,15 @@ class UserService {
      const user = await UserModel.findOne({_id: id});
      return user;
    }
+
+   async updateRole(id, content) {
+     const user = await UserModel.findOneAndUpdate(
+       {_id: id},
+       {$set: content},
+       {new: true}
+     );
+     return user;
+   }
 }
 
 module.exports = new UserService();

@@ -73,6 +73,16 @@ class UserController {
       next(err);
     }
   }
+
+  async changeRole(req, res, next) {
+    try {
+      const user = await userService.updateRole(req.params.id, req.body);
+      res.json(user);
+    } catch(err) {
+      next(err);
+    }
+  }
+
 }
 
 module.exports = new UserController();
