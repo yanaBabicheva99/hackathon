@@ -5,6 +5,7 @@ import { Route, Routes as Switch, Navigate } from "react-router-dom";
 import Main from "../component/main";
 import Login from "../component/LoginPage/login";
 
+
 export const Routes = () => {
   // const select = localStorage.getItem('token');
 
@@ -18,7 +19,7 @@ export const Routes = () => {
     return (
       <Switch>
         <Route path="/" element={<Main />}></Route>
-        <Route path="/login" element={<Navigate to="/" replace />} />
+        {/* <Route path="/login" element={<Navigate to="/" replace />} /> */}
       </Switch>
     );
   } else {
