@@ -16,7 +16,7 @@
     width: 65%;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     .main-wrapper {
         flex-direction: column;
         justify-content: center;
@@ -31,7 +31,7 @@
     .tests {
         margin-top: 10px;
         margin-bottom: 5px;
-        width: 100%
+        width: 100%;
     }
 }
 
