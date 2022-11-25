@@ -4,7 +4,7 @@ const testService = require("../service/test-service");
 class TestController {
   add = async (req, res, next) => {
     try {
-      var { name, description } = req.body;
+      const { name, description } = req.body;
       const test = await testService.add(name, description);
       return res.json({ status: "OK", result: test });
     } catch (e) {
@@ -43,11 +43,16 @@ class TestController {
   };
 
   get = async (req, res, next) => {
-    const { id } = req.query;
-    var test = [];
-    if (!id) test = await testModel.find({});
-    else test = await testModel.findOne({ _id: id });
-    return res.json({ status: "OK", result: test });
+    try {
+      const { id } = req.query;
+      let test = [];
+      if (!id) test = await testModel.find({});
+      else test = await testModel.findOne({ _id: id });
+      return res.json({ status: "OK", result: test });
+    } catch (e) {
+      next(e);
+    }
+
   };
 }
 

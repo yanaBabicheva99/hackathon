@@ -11,6 +11,7 @@ import {Exhibition} from './Exhibition/Exhibition';
 import {SingleQuestion} from "./QuestionsTmp/SingleQuestion";
 import {MultiQuestion} from "./QuestionsTmp/MultiQuestion";
 import {FreeQuestion} from "./QuestionsTmp/FreeQuestion";
+import Tasks from './TaskPage/tasks';
 
 export const Routes = () => {
   const select = useSelector(getToken());
@@ -18,24 +19,23 @@ export const Routes = () => {
     return (
       <Switch>
         <Route path="/" element={<Main />}></Route>
+        <Route path={'/tasks'} element={<Tasks />}></Route>
         <Route path="/login" element={<Navigate to="/" replace />} />
       </Switch>
     );
   } else {
     return (
       <Switch>
-        <Route path="/login" element={<Login />}></Route>
-
-        <Route path="*" element={<Navigate to="/login" replace />} />
-                <Route path="/personalpage" element={<Personal />}></Route>
-
-        <Route path="/register" element={<Register />}></Route>
-        <Route path="/" element={<Main />}></Route>
+        <Route path={"/login"} element={<Login />}></Route>
+         <Route path={"/personalpage"} element={<Personal />}></Route>
+          <Route path={"/register"} element={<Register />}></Route>
+          <Route path={"/"} element={<Main />}></Route>
           <Route path={'/exhibition'} element={<Exhibition />} />
         {/*<Route path="*" element={<Navigate to="/login" replace />} />*/}
           <Route path={'/singlequestion'} element={<SingleQuestion />} />
           <Route path={'/multiquestion'} element={<MultiQuestion />} />
           <Route path={'/freequestion'} element={<FreeQuestion />} />
+          <Route path="*" element={<Navigate to={"/login"} replace />} />
 
       </Switch>
     );

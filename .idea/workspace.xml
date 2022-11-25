@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1daf631a-ef60-48ef-849e-7a8e627e9481" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/component/TaskPage/tasks.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/config/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controllers/role-controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/middleware/roleMiddleware.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/models/roleModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/models/taskModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/models/testModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/models/variantModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/routs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/routs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/services/testSecrice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/services/testService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/types/TestServiceTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/types/TestServiceTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/user-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user-controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dtos/user-dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dtos/user-dto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/userModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/userModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/service/mail-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/mail-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/service/user-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/user-service.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HqnQSkgrIlU8nCwhTP9Wrq9lpy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="sortByType" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/ Users/Babic/WebstormProjects/crm_fullstack_rtk/src/app/components/pages/personal/Personal.jsx",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\ Users\\Babic\\WebstormProjects\\my-app\\client\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\ Users\Babic\WebstormProjects\my-app\client" />
+      <recent name="C:\ Users\Babic\WebstormProjects\my-app\server" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\ Users\Babic\WebstormProjects\my-app\client\src\component" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1daf631a-ef60-48ef-849e-7a8e627e9481" name="Changes" comment="" />
+      <created>1669021464372</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669021464372</updated>
+      <workItem from="1669021466646" duration="12259000" />
+      <workItem from="1669034038149" duration="202000" />
+      <workItem from="1669034258796" duration="20517000" />
+      <workItem from="1669098417590" duration="8462000" />
+      <workItem from="1669106994446" duration="12083000" />
+      <workItem from="1669121365638" duration="2030000" />
+      <workItem from="1669123443012" duration="4625000" />
+      <workItem from="1669140224211" duration="1483000" />
+      <workItem from="1669185787814" duration="1719000" />
+      <workItem from="1669187542819" duration="948000" />
+      <workItem from="1669188520465" duration="1669000" />
+      <workItem from="1669190222404" duration="1935000" />
+      <workItem from="1669193649995" duration="839000" />
+      <workItem from="1669194507586" duration="820000" />
+      <workItem from="1669195347841" duration="159000" />
+      <workItem from="1669195519158" duration="15000" />
+      <workItem from="1669195566990" duration="157000" />
+      <workItem from="1669195791630" duration="41000" />
+      <workItem from="1669196557266" duration="29865000" />
+      <workItem from="1669235937339" duration="3543000" />
+      <workItem from="1669242829548" duration="199000" />
+      <workItem from="1669272298492" duration="2553000" />
+      <workItem from="1669274890549" duration="1273000" />
+      <workItem from="1669276237753" duration="5336000" />
+      <workItem from="1669282337608" duration="10916000" />
+      <workItem from="1669293777583" duration="8353000" />
+      <workItem from="1669327903805" duration="441000" />
+      <workItem from="1669354763049" duration="337000" />
+      <workItem from="1669358568151" duration="3229000" />
+      <workItem from="1669362498434" duration="8000" />
+      <workItem from="1669381132135" duration="22309000" />
+      <workItem from="1669408663214" duration="4884000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
