@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { Input, Button, Card } from "antd";
-import { useSignInMutation } from "../../services/authService";
+import { Input, Button, Card, Radio, Checkbox } from "antd";
+import { useSignUpMutation } from "../../services/authService";
 import { createToken, getToken } from "../../services/tokenService";
 import { useDispatch, useSelector } from "react-redux";
-import "./login.css";
+import "../LoginPage/login";
 import { Layout } from "antd";
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -15,21 +15,21 @@ const SignupSchema = Yup.object().shape({
   password: Yup.string().required("is required"),
 });
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const dispatch = useDispatch();
-  const [signIn] = useSignInMutation();
+  const [signUp] = useSignUpMutation();
   const select = useSelector(getToken());
 
-  console.log(select);
-
+  const [isCompany, setIsCompany] = useState(false);
   const initialValues = {
     email: "",
     password: "",
+    nameCompany: "",
   };
 
   const handleSubmit = async (content) => {
     console.log(content);
-    signIn(content)
+    signUp(content)
       .unwrap()
       .then((data) => dispatch(createToken(data)))
       .catch((err) => console.log(err));
@@ -43,7 +43,7 @@ const LoginForm = () => {
       <Header>Header</Header>
       <div className="login__wrapper">
         <Card className="login__container">
-          <h1>Вход </h1>
+          <h1>Быстрая регистрация</h1>
           <Formik
             initialValues={initialValues}
             validationSchema={SignupSchema}
@@ -67,6 +67,7 @@ const LoginForm = () => {
                   onBlur={handleBlur}
                   touched={touched.email}
                   errors={errors.email}
+                  placeholder="email"
                 />
 
                 <Input
@@ -78,16 +79,38 @@ const LoginForm = () => {
                   onBlur={handleBlur}
                   touched={touched.password}
                   errors={errors.password}
+                  placeholder="пароль"
                 />
-
+                <div>
+                  <Checkbox
+                    onChange={() => {
+                      setIsCompany((prev) => !prev);
+                    }}
+                  >
+                    Я представитель компании
+                  </Checkbox>
+                </div>
+                {isCompany && (
+                  <Input
+                    className="login__input"
+                    type="text"
+                    name="password"
+                    value={values.nameCompany}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    touched={touched.password}
+                    errors={errors.password}
+                    placeholder="Название компании"
+                  />
+                )}
                 <Button type="primary" className="login__button">
-                  Войти
+                  Создать аккаунт
                 </Button>
               </form>
             )}
           </Formik>
           <p>
-            Нет аккаунта? <Link to="/register">Создать аккаунт!</Link>
+            Есть аккаунт? <Link to="/login">Войти!</Link>
           </p>
         </Card>
       </div>
@@ -95,4 +118,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

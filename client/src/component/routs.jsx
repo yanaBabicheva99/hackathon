@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { getToken } from "../services/tokenService";
 import Main from "./main";
 import Login from "./LoginPage/login";
+import Register from "./RegisterPage/register";
 
 export const Routes = () => {
   const select = useSelector(getToken());
@@ -22,6 +23,7 @@ export const Routes = () => {
     return (
       <Switch>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Switch>
     );
