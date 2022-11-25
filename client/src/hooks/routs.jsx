@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { getToken } from "../services/tokenService";
 import { Route, Routes as Switch, Navigate } from "react-router-dom";
-import Main from "../component/main";
+import Main from "../component/Main/main";
 import Login from "../component/LoginPage/login";
 
 export const Routes = () => {

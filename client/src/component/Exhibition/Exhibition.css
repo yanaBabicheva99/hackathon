@@ -1,0 +1,10 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-wrapper {
+    text-align: center;
+    align-items: center;
+}

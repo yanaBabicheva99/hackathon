@@ -3,9 +3,10 @@ import { Route, Routes as Switch, Navigate } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 import { getToken } from "../services/tokenService";
-import Main from "./main";
+import Main from "./Main/main";
 import Login from "./LoginPage/login";
 import Register from "./RegisterPage/register";
+import {Exhibition} from './Exhibition/Exhibition';
 
 export const Routes = () => {
   const select = useSelector(getToken());
@@ -24,7 +25,9 @@ export const Routes = () => {
       <Switch>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        <Route path="/" element={<Main />}></Route>
+          <Route path={'/exhibition'} element={<Exhibition />} />
+        {/*<Route path="*" element={<Navigate to="/login" replace />} />*/}
       </Switch>
     );
   }
