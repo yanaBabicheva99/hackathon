@@ -1,5 +1,7 @@
 import React from 'react';
-import { useGetUsersQuery } from '../services/userService';
+import './main.css'
+import { useGetUsersQuery } from '../../services/userService';
+import {ExhibitionItem} from "./ExhibitionItem/ExhibitionItem";
 
 const Main = () => {
   const {data, error, isLoading} = useGetUsersQuery();
@@ -13,8 +15,8 @@ const Main = () => {
 console.log('nerio')
 
   return (
-    <div>
-      main
+    <div className={'main-wrapper'}>
+      <ExhibitionItem />
     </div>
   );
 };
