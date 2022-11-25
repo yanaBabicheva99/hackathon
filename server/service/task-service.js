@@ -43,7 +43,7 @@ class TaskService {
       await candidateTest.updateOne({
         $addToSet: { tasks_id: new ObjectId(task._id) },
       });
-      return { task: task, test_id: candidateTest._id };
+      return { task: task };
     } catch (e) {
       return [];
     }
@@ -61,7 +61,7 @@ class TaskService {
 
       await candidate.updateOne({ title, description, type });
 
-      return candidate._id;
+      return candidate;
     } catch (e) {
       return [];
     }
@@ -83,7 +83,7 @@ class TaskService {
 
       await candidateTask.deleteOne({ _id: id });
 
-      return { task_id: candidateTask._id, test_id: candidateTest._id };
+      return { task: candidateTask };
     } catch (e) {
       return [];
     }

@@ -36,7 +36,7 @@ class TestService {
 
       await candidate.updateOne({ name, description, tasks_id });
 
-      return candidate._id;
+      return candidate;
     } catch (e) {
       return [];
     }
@@ -55,7 +55,7 @@ class TestService {
 
       await candidate.deleteOne({ _id: id });
 
-      return candidate._id;
+      return candidate;
     } catch (e) {
       return [];
     }
