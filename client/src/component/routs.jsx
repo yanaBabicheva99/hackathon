@@ -9,9 +9,6 @@ import Register from "./RegisterPage/register";
 
 export const Routes = () => {
   const select = useSelector(getToken());
-  console.log("select");
-  console.log(select);
-  debugger;
   if (select) {
     return (
       <Switch>
