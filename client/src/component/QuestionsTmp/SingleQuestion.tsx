@@ -5,7 +5,7 @@ import {Button, Card, Radio, Space} from "antd";
 export const SingleQuestion = () => {
     return (
         <div className={'single-wrapper'}>
-            <Card title={'Вопрос 1: Где обитают пингвины?'} style={{width: '500px'}}>
+            <Card title={'Вопрос 1: Где обитают пингвины?'}>
                 <div className={'singleq-card'}>
                     <Radio.Group name="radiogroup" defaultValue={1}>
                         <Space direction='vertical'>
@@ -15,7 +15,7 @@ export const SingleQuestion = () => {
                             <Radio value={4}>Пожалуйста</Radio>
                         </Space>
                     </Radio.Group>
-                    <Button style={{marginTop: '5px'}} type={'primary'}>Подтвердить</Button>
+                    <Button style={{marginTop: '5px'}} className={'button-wrapper'}>Подтвердить</Button>
                 </div>
             </Card>
         </div>

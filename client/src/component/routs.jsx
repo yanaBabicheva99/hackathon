@@ -11,6 +11,7 @@ import {Exhibition} from './Exhibition/Exhibition';
 import {SingleQuestion} from "./QuestionsTmp/SingleQuestion";
 import {MultiQuestion} from "./QuestionsTmp/MultiQuestion";
 import {FreeQuestion} from "./QuestionsTmp/FreeQuestion";
+import {TestPage} from "./TestPage/TestPage";
 
 export const Routes = () => {
   const select = useSelector(getToken());
@@ -36,6 +37,7 @@ export const Routes = () => {
           <Route path={'/singlequestion'} element={<SingleQuestion />} />
           <Route path={'/multiquestion'} element={<MultiQuestion />} />
           <Route path={'/freequestion'} element={<FreeQuestion />} />
+          <Route path={'/test'} element={<TestPage />} />
 
       </Switch>
     );
