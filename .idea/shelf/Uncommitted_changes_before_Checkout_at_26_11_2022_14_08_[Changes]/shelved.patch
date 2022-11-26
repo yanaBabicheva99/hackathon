@@ -1,0 +1,295 @@
+Index: client/src/component/routs.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/src/component/routs.jsx b/client/src/component/routs.jsx
+--- a/client/src/component/routs.jsx	
++++ b/client/src/component/routs.jsx	
+@@ -1,1 +1,52 @@
+ 
++import React from "react";
++import { Route, Routes as Switch, Navigate } from "react-router-dom";
++
++import { useSelector } from "react-redux";
++import { getToken } from "../services/tokenService";
++import Main from "./Main/main";
++import Login from "./LoginPage/login";
++import Personal from "./PersonalCabinet/personal";
++import Register from "./RegisterPage/register";
++import Headline from "./Head/Headline";
++import {Exhibition} from './Exhibition/Exhibition';
++import {SingleQuestion} from "./QuestionsTmp/SingleQuestion";
++import {MultiQuestion} from "./QuestionsTmp/MultiQuestion";
++import {FreeQuestion} from "./QuestionsTmp/FreeQuestion";
++import {TestPage} from "./TestPage/TestPage";
++import {createTest} from "./createTest/createTest"
++import Tasks from './TaskPage/tasks';
++
++export const Routes = () => {
++  const select = useSelector(getToken());
++  if (select) {
++    return (
++      <Switch>
++        <Route path="/" element={<Main />}></Route>
++        <Route path="/login" element={<Navigate to="/" replace />} />
++        <Route path='/tasks' element={<Tasks />}/>
++      </Switch>
++    );
++  } else {
++    return (
++      <Switch>
++        <Route path="/login" element={<Login />}></Route>
++
++        <Route path="*" element={<Navigate to="/login" replace />} />
++        <Route path="/personalpage" element={<Personal />}></Route>
++        <Route path="/headline" element={<Headline />}></Route>
++        <Route path="/register" element={<Register />}></Route>
++        <Route path="/" element={<Main />}></Route>
++        <Route path={'/exhibition'} element={<Exhibition />} />
++        {/*<Route path="*" element={<Navigate to="/login" replace />} />*/}
++        <Route path={'/singlequestion'} element={<SingleQuestion />} />
++        <Route path={'/multiquestion'} element={<MultiQuestion />} />
++        <Route path={'/freequestion'} element={<FreeQuestion />} />
++        <Route path={'/test'} element={<TestPage />} />
++        <Route path={'/createtest'} element={<createTest />} />
++
++      </Switch>
++    );
++  }
++};
++
+Index: client/src/component/form/taskForm.jsx
+===================================================================
+diff --git a/client/src/component/form/taskForm.jsx b/client/src/component/form/taskForm.jsx
+new file mode 100644
+--- /dev/null	
++++ b/client/src/component/form/taskForm.jsx	
+@@ -0,0 +1,67 @@
++import React from 'react';
++import { Button, Input } from 'antd';
++import { Formik } from 'formik';
++import * as Yup from 'yup';
++
++
++const SignupSchema = Yup.object().shape({
++  name: Yup.string()
++    .required("is required")
++    .min(2, 'is too short!')
++    .matches( /^\S*$/, 'incorrect'),
++  description: Yup.string()
++    .matches( /^\S*$/, 'incorrect')
++    .min(10, 'is too short!')
++});
++
++const TaskForm = ({
++                    initialValues = {
++                      name: '',
++                      description: '',
++                    }, handleSubmit, title = 'Создать задачу'
++                  }) => {
++  return (
++    <Formik
++      initialValues={initialValues}
++      validationSchema={SignupSchema}
++      onSubmit={handleSubmit}
++    >
++      {({
++          values,
++          errors,
++          touched,
++          handleChange,
++          handleBlur,
++          handleSubmit,
++        }) => (
++        <form onSubmit={handleSubmit}>
++          <Input
++            className="login__input"
++            type="text"
++            name="name"
++            value={values.name}
++            onChange={handleChange}
++            onBlur={handleBlur}
++          />
++          {errors.name && touched.name && <p>{errors.name}</p>}
++
++          <Input
++            className="login__input"
++            type="text"
++            name="description"
++            value={values.description}
++            onChange={handleChange}
++            onBlur={handleBlur}
++          />
++          {errors.description && touched.description && <p>{errors.description}</p>}
++
++          <Button type="primary" htmlType='submit' className="login__button">
++            {title}
++          </Button>
++        </form>
++      )}
++    </Formik>
++  );
++};
++
++export default TaskForm;
+\ No newline at end of file
+Index: client/src/component/TaskPage/tasks.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from 'react';\r\nimport * as Yup from 'yup';\r\nimport { Formik } from 'formik';\r\n\r\nimport { useCreateTestMutation, useGetTestsQuery } from '../../services/testService';\r\n\r\nimport { Button, Input } from 'antd';\r\n\r\n\r\n\r\nconst Tasks = () => {\r\n  const [createTest] = useCreateTestMutation();\r\n  const {data, error, isLoading} = useGetTestsQuery();\r\n\r\n  console.log(data,  'fkf')\r\n\r\n  const SignupSchema = Yup.object().shape({\r\n    name: Yup.string()\r\n      .required(\"is required\")\r\n      .min(2, 'is too short!')\r\n      .matches( /^\\S*$/, 'incorrect'),\r\n    description: Yup.string()\r\n      .matches( /^\\S*$/, 'incorrect')\r\n      .min(10, 'is too short!')\r\n  });\r\n\r\n  const initialValues = {\r\n    name: \"\",\r\n    description: \"\",\r\n  };\r\n\r\n  const handleSubmit = async (content) => {\r\n    createTest(content)\r\n      .unwrap()\r\n      .then(content => console.log(content))\r\n      .catch(err => console.log(err))\r\n  }\r\n\r\n  return (\r\n    <div>\r\n      <Formik\r\n        initialValues={initialValues}\r\n        validationSchema={SignupSchema}\r\n        onSubmit={handleSubmit}\r\n      >\r\n        {({\r\n            values,\r\n            errors,\r\n            touched,\r\n            handleChange,\r\n            handleBlur,\r\n            handleSubmit,\r\n          }) => (\r\n          <form onSubmit={handleSubmit}>\r\n            <Input\r\n              className=\"login__input\"\r\n              type=\"text\"\r\n              name=\"name\"\r\n              value={values.name}\r\n              onChange={handleChange}\r\n              onBlur={handleBlur}\r\n            />\r\n            {errors.name && touched.name && <p>{errors.name}</p>}\r\n\r\n            <Input\r\n              className=\"login__input\"\r\n              type=\"text\"\r\n              name=\"description\"\r\n              value={values.description}\r\n              onChange={handleChange}\r\n              onBlur={handleBlur}\r\n            />\r\n            {errors.description && touched.description && <p>{errors.description}</p>}\r\n\r\n            <Button type=\"primary\" htmlType='submit' className=\"login__button\">\r\n              Создать задачу\r\n            </Button>\r\n          </form>\r\n        )}\r\n      </Formik>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Tasks;
+===================================================================
+diff --git a/client/src/component/TaskPage/tasks.jsx b/client/src/component/TaskPage/tasks.jsx
+--- a/client/src/component/TaskPage/tasks.jsx	
++++ b/client/src/component/TaskPage/tasks.jsx	
+@@ -5,6 +5,7 @@
+ import { useCreateTestMutation, useGetTestsQuery } from '../../services/testService';
+ 
+ import { Button, Input } from 'antd';
++import TaskForm from '../form/taskForm';
+ 
+ 
+ 
+@@ -12,22 +13,6 @@
+   const [createTest] = useCreateTestMutation();
+   const {data, error, isLoading} = useGetTestsQuery();
+ 
+-  console.log(data,  'fkf')
+-
+-  const SignupSchema = Yup.object().shape({
+-    name: Yup.string()
+-      .required("is required")
+-      .min(2, 'is too short!')
+-      .matches( /^\S*$/, 'incorrect'),
+-    description: Yup.string()
+-      .matches( /^\S*$/, 'incorrect')
+-      .min(10, 'is too short!')
+-  });
+-
+-  const initialValues = {
+-    name: "",
+-    description: "",
+-  };
+ 
+   const handleSubmit = async (content) => {
+     createTest(content)
+@@ -38,46 +23,7 @@
+ 
+   return (
+     <div>
+-      <Formik
+-        initialValues={initialValues}
+-        validationSchema={SignupSchema}
+-        onSubmit={handleSubmit}
+-      >
+-        {({
+-            values,
+-            errors,
+-            touched,
+-            handleChange,
+-            handleBlur,
+-            handleSubmit,
+-          }) => (
+-          <form onSubmit={handleSubmit}>
+-            <Input
+-              className="login__input"
+-              type="text"
+-              name="name"
+-              value={values.name}
+-              onChange={handleChange}
+-              onBlur={handleBlur}
+-            />
+-            {errors.name && touched.name && <p>{errors.name}</p>}
+-
+-            <Input
+-              className="login__input"
+-              type="text"
+-              name="description"
+-              value={values.description}
+-              onChange={handleChange}
+-              onBlur={handleBlur}
+-            />
+-            {errors.description && touched.description && <p>{errors.description}</p>}
+-
+-            <Button type="primary" htmlType='submit' className="login__button">
+-              Создать задачу
+-            </Button>
+-          </form>
+-        )}
+-      </Formik>
++     <TaskForm handleSubmit={handleSubmit}/>
+     </div>
+   );
+ };
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"1daf631a-ef60-48ef-849e-7a8e627e9481\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/client/src/component/TaskPage/tasks.jsx\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/server/config/config.js\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/server/controllers/role-controller.js\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/server/middleware/roleMiddleware.js\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/server/models/roleModel.js\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/server/models/taskModel.js\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/server/models/testModel.js\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/server/models/variantModel.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/client/src/component/routs.jsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/client/src/component/routs.jsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/client/src/services/testSecrice.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/client/src/services/testService.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/client/src/store/store.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/client/src/store/store.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/client/src/types/TestServiceTypes.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/client/src/types/TestServiceTypes.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/server/.env\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/server/.env\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/server/controllers/user-controller.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/server/controllers/user-controller.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/server/dtos/user-dto.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/server/dtos/user-dto.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/server/models/userModel.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/server/models/userModel.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/server/package-lock.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/server/package-lock.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/server/router/index.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/server/router/index.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/server/service/mail-service.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/server/service/mail-service.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/server/service/user-service.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/server/service/user-service.js\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"TypeScript File\" />\r\n        <option value=\"JavaScript File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"ROOT_SYNC\" value=\"DONT_SYNC\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2HqnQSkgrIlU8nCwhTP9Wrq9lpy\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n    <option name=\"showMembers\" value=\"true\" />\r\n    <option name=\"sortByType\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"last_opened_file_path\": \"C:/ Users/Babic/WebstormProjects/crm_fullstack_rtk/src/app/components/pages/personal/Personal.jsx\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"ts.external.directory.path\": \"C:\\\\ Users\\\\Babic\\\\WebstormProjects\\\\my-app\\\\client\\\\node_modules\\\\typescript\\\\lib\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\ Users\\Babic\\WebstormProjects\\my-app\\client\" />\r\n      <recent name=\"C:\\ Users\\Babic\\WebstormProjects\\my-app\\server\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\ Users\\Babic\\WebstormProjects\\my-app\\client\\src\\component\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"1daf631a-ef60-48ef-849e-7a8e627e9481\" name=\"Changes\" comment=\"\" />\r\n      <created>1669021464372</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1669021464372</updated>\r\n      <workItem from=\"1669021466646\" duration=\"12259000\" />\r\n      <workItem from=\"1669034038149\" duration=\"202000\" />\r\n      <workItem from=\"1669034258796\" duration=\"20517000\" />\r\n      <workItem from=\"1669098417590\" duration=\"8462000\" />\r\n      <workItem from=\"1669106994446\" duration=\"12083000\" />\r\n      <workItem from=\"1669121365638\" duration=\"2030000\" />\r\n      <workItem from=\"1669123443012\" duration=\"4625000\" />\r\n      <workItem from=\"1669140224211\" duration=\"1483000\" />\r\n      <workItem from=\"1669185787814\" duration=\"1719000\" />\r\n      <workItem from=\"1669187542819\" duration=\"948000\" />\r\n      <workItem from=\"1669188520465\" duration=\"1669000\" />\r\n      <workItem from=\"1669190222404\" duration=\"1935000\" />\r\n      <workItem from=\"1669193649995\" duration=\"839000\" />\r\n      <workItem from=\"1669194507586\" duration=\"820000\" />\r\n      <workItem from=\"1669195347841\" duration=\"159000\" />\r\n      <workItem from=\"1669195519158\" duration=\"15000\" />\r\n      <workItem from=\"1669195566990\" duration=\"157000\" />\r\n      <workItem from=\"1669195791630\" duration=\"41000\" />\r\n      <workItem from=\"1669196557266\" duration=\"29865000\" />\r\n      <workItem from=\"1669235937339\" duration=\"3543000\" />\r\n      <workItem from=\"1669242829548\" duration=\"199000\" />\r\n      <workItem from=\"1669272298492\" duration=\"2553000\" />\r\n      <workItem from=\"1669274890549\" duration=\"1273000\" />\r\n      <workItem from=\"1669276237753\" duration=\"5336000\" />\r\n      <workItem from=\"1669282337608\" duration=\"10916000\" />\r\n      <workItem from=\"1669293777583\" duration=\"8353000\" />\r\n      <workItem from=\"1669327903805\" duration=\"441000\" />\r\n      <workItem from=\"1669354763049\" duration=\"337000\" />\r\n      <workItem from=\"1669358568151\" duration=\"3229000\" />\r\n      <workItem from=\"1669362498434\" duration=\"8000\" />\r\n      <workItem from=\"1669381132135\" duration=\"22309000\" />\r\n      <workItem from=\"1669408663214\" duration=\"4884000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -2,7 +2,7 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="1daf631a-ef60-48ef-849e-7a8e627e9481" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/client/src/component/TaskPage/tasks.jsx" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/client/src/component/form/taskForm.jsx" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/server/config/config.js" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/server/controllers/role-controller.js" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/server/middleware/roleMiddleware.js" afterDir="false" />
+@@ -10,10 +10,9 @@
+       <change afterPath="$PROJECT_DIR$/server/models/taskModel.js" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/server/models/testModel.js" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/server/models/variantModel.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/client/src/component/TaskPage/tasks.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/TaskPage/tasks.jsx" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/client/src/component/routs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/routs.jsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/client/src/services/testSecrice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/services/testService.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/client/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/store.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/client/src/types/TestServiceTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/types/TestServiceTypes.ts" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/server/controllers/user-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user-controller.js" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/server/dtos/user-dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dtos/user-dto.js" afterDir="false" />
+@@ -51,19 +50,19 @@
+     <option name="showMembers" value="true" />
+     <option name="sortByType" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "last_opened_file_path": "C:/ Users/Babic/WebstormProjects/crm_fullstack_rtk/src/app/components/pages/personal/Personal.jsx",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "ts.external.directory.path": "C:\\ Users\\Babic\\WebstormProjects\\my-app\\client\\node_modules\\typescript\\lib",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/ Users/Babic/WebstormProjects/crm_fullstack_rtk/src/app/components/pages/personal/Personal.jsx&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;ts.external.directory.path&quot;: &quot;C:\\ Users\\Babic\\WebstormProjects\\my-app\\client\\node_modules\\typescript\\lib&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\ Users\Babic\WebstormProjects\my-app\client" />
+@@ -113,6 +112,7 @@
+       <workItem from="1669362498434" duration="8000" />
+       <workItem from="1669381132135" duration="22309000" />
+       <workItem from="1669408663214" duration="4884000" />
++      <workItem from="1669459518383" duration="1303000" />
+     </task>
+     <servers />
+   </component>

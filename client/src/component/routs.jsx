@@ -21,6 +21,7 @@ export const Routes = () => {
         <Route path="/" element={<Main />}></Route>
         <Route path={'/tasks'} element={<Tasks />}></Route>
         <Route path="/login" element={<Navigate to="/" replace />} />
+        <Route path={'/tasks'} element={<Tasks />}></Route>
       </Switch>
     );
   } else {
