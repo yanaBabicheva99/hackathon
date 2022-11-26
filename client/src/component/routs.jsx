@@ -15,6 +15,7 @@ import {FreeQuestion} from "./QuestionsTmp/FreeQuestion";
 import {TestPage} from "./TestPage/TestPage";
 import TaskList from "./TaskLists/TaskList/TaskList";
 import TaskLists from "./TaskLists/TaskLists";
+import CreateTest from "./createTest/createTest";
 
 
 export const Routes = () => {
@@ -44,6 +45,7 @@ export const Routes = () => {
           <Route path={'/test'} element={<TestPage />} />
           <Route path={'/tasklist'} element={<TaskList/>} />
           <Route path={'/tasklists'} element={<TaskLists/>} />
+          <Route path={'/createtest'} element={<CreateTest />} />
 
 
       </Switch>
