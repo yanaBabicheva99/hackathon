@@ -10,7 +10,6 @@ const linkStyle = {
   color: 'bisque'
 };
 
-
 const Headline: React.FC = () => (
   <Layout>
     <Header style={{ position: 'sticky', top: 0, zIndex: 1, width: '100%' }}>
@@ -19,9 +18,7 @@ const Headline: React.FC = () => (
         theme="dark"
         mode="horizontal"
       >
-        
         <Link style={linkStyle} to="/personalpage">Personal</Link>
-        <Link style={linkStyle} to="/exhibition">Exhibition</Link>
       </Menu>
     </Header>
   </Layout>
