@@ -104,17 +104,8 @@ class UserController {
           status: "INVALID_DATA",
         });
       }
-      await candidate.updateOne(
-        {
-          $set: {
-            tests: {
-              test_id,
-              tasks,
-            },
-          },
-        },
-        { upsert: true }
-      );
+      candidate.tests.push({ test_id, tasks });
+      await candidate.save();
       return res.json(candidate);
     } catch (err) {
       next(err);

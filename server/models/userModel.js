@@ -34,7 +34,9 @@ const UserSchema = new Schema({
       tasks: [
         {
           task_id: { type: Schema.Types.ObjectId, ref: "Task" },
-          variants_id: [{ type: Schema.Types.ObjectId, ref: "Variant" }],
+          variants_id: [
+            { type: Schema.Types.ObjectId, ref: "Variant", require: false },
+          ],
         },
       ],
     },
