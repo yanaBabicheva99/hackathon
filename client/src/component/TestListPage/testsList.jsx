@@ -1,19 +1,14 @@
 import React from 'react';
-import * as Yup from 'yup';
-import { Formik } from 'formik';
-
 import { useCreateTestMutation, useGetTestsQuery } from '../../services/testService';
 
-import { Button, Input } from 'antd';
-import TaskForm from '../form/taskForm';
+import { TestList } from '../TestList/TestList';
+import TestLists from '../TaskLists/TestLists';
 
 
 
-const Tasks = () => {
+const TestsList = () => {
   const [createTest] = useCreateTestMutation();
   const {data, error, isLoading} = useGetTestsQuery();
-
-  console.log(data,  'fkf')
 
   const handleSubmit = async (content) => {
     createTest(content)
@@ -24,9 +19,15 @@ const Tasks = () => {
 
   return (
     <div>
-     <TaskForm handleSubmit={handleSubmit}/>
+      {isLoading
+       ? <h2>Loading...</h2>
+       : <>
+          <TestLists handleSubmit={handleSubmit}>
+            <TestList data={data}/>
+          </TestLists>
+        </>}
     </div>
   );
 };
 
-export default Tasks;
+export default TestsList;

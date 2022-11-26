@@ -8,16 +8,17 @@ import Login from "./LoginPage/login";
 import Personal from "./PersonalCabinet/personal";
 import Register from "./RegisterPage/register";
 import Headline from "./Head/Headline";
+
 import { Exhibition } from "./Exhibition/Exhibition";
 import { SingleQuestion } from "./QuestionsTmp/SingleQuestion";
 import { MultiQuestion } from "./QuestionsTmp/MultiQuestion";
 import { FreeQuestion } from "./QuestionsTmp/FreeQuestion";
 import { TestPage } from "./TestPage/TestPage";
-// import CreateTest from "./CreateTest/CreateTest";
 import TaskList from "./TaskLists/TaskList/TaskList";
 import TaskLists from "./TaskLists/TaskLists";
 import CreateTest from "./createTest/createTest";
 import Tasks from "./TaskPage/tasks";
+import TestsList from "./TestListPage/testsList";
 
 export const Routes = () => {
   const select = useSelector(getToken());
@@ -29,6 +30,7 @@ export const Routes = () => {
         <Route path="/login" element={<Navigate to="/" replace />} />
         <Route path="/" element={<Main />}></Route>
         <Route path={"/tasks"} element={<Tasks />}></Route>
+        <Route path={"/tests"} element={<TestsList />}></Route>
 
         <Route path="/personalpage" element={<Personal />}></Route>
         <Route path="/headline" element={<Headline />}></Route>

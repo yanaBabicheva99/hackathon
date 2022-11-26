@@ -1,0 +1,39 @@
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: none;
+    background-color: rgba(28, 23, 30, 0.8);
+}
+
+.modal__content {
+     position: relative;
+     width: 428px;
+     padding: 64px 64px 32px;
+     background-color: #fff;
+    border-radius: 15px;
+}
+
+.modal__btn {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    transform: translateX(100%);
+    background-color: transparent;
+    border: none;
+}
+
+.modal__btn_close {
+     width: 16px;
+     height: 16px;
+ }
+
+
+
+.modal.active {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }

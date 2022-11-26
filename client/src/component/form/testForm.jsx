@@ -7,7 +7,7 @@ const SignupSchema = Yup.object().shape({
   name: Yup.string()
     .required("is required")
     .min(2, 'is too short!')
-    .matches( /^\S*$/, 'incorrect'),
+    .matches( /^\S/, 'incorrect'),
   description: Yup.string()
     .matches( /^\S*$/, 'incorrect')
     .min(10, 'is too short!')
@@ -15,19 +15,21 @@ const SignupSchema = Yup.object().shape({
 
 
 
-const TaskForm = ({
+const TestForm = ({
                     initialValues = {
                       name: "",
                       description: "",
                     },
                     title='Создать задачу',
-                    handleSubmit
+                    handleSubmit,
+                    handleVisible= null
                   }) => {
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={SignupSchema}
       onSubmit={handleSubmit}
+      enableReinitialize={true}
     >
       {({
           values,
@@ -35,7 +37,7 @@ const TaskForm = ({
           touched,
           handleChange,
           handleBlur,
-          handleSubmit,
+          handleSubmit
         }) => (
         <form onSubmit={handleSubmit}>
           <Input
@@ -57,14 +59,31 @@ const TaskForm = ({
             onBlur={handleBlur}
           />
           {errors.description && touched.description && <p>{errors.description}</p>}
-
-          <Button type="primary" htmlType='submit' className="login__button">
+          <div className='wrapper__btn'>
+          <Button
+            disabled={errors.description || errors.name}
+            onClick={() => handleVisible()}
+            type="primary"
+            htmlType='submit'
+            className="login__button"
+          >
             {title}
           </Button>
+          {title === 'Изменить тест' &&
+            <Button
+              onClick={() => handleVisible()}
+              type="primary"
+              htmlType='submit'
+              className="login__button"
+            >
+              Добавить задачу
+            </Button>
+          }
+          </div>
         </form>
       )}
     </Formik>
   );
 };
 
-export default TaskForm;
+export default TestForm;
