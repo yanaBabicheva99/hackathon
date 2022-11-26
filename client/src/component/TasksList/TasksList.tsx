@@ -5,9 +5,6 @@ import './TasksList.css'
 export const TasksList = () => {
     return (
         <div className={'main-wrapper'}>
-            <div className={'title'}>
-                <h1>Список задач</h1>
-            </div>
             <div className={'tasks'}>
                 <div className={'task'}>
                     <div>

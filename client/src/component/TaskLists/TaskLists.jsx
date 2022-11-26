@@ -1,7 +1,8 @@
 import React from 'react';
-import { Card, Button } from 'antd';
-import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import {Card, Button} from 'antd';
+import {EditOutlined, DeleteOutlined} from '@ant-design/icons';
 import './TaskLists.css'
+import {TasksList} from "../TasksList/TasksList";
 
 const TaskLists = () => {
     return (
@@ -12,27 +13,27 @@ const TaskLists = () => {
 
         }}>
             <Card title='Список задач'
-                headStyle={{
-                    textAlign: 'center',
-                    width: '800px',
-                    
-                }}
-                style ={{
-                    width: '800px',
-                    height: '800px'
-                }}
-                >
+                  headStyle={{
+                      textAlign: 'center',
+                      width: '800px',
+
+                  }}
+                  style={{
+                      width: '800px',
+                      height: '800px'
+                  }}
+            >
                 <div className='taskLists__Content'>
                     <Card title='Добавление задач'
-                        style={{ textAlign: 'center', height: '700px' }}
+                          style={{textAlign: 'center', height: '700px'}}
                     >
 
                     </Card>
 
                     <Card title='Список задач'
-                        style={{ textAlign: 'center' }}
+                          style={{textAlign: 'center'}}
                     >
-
+                        <TasksList/>
                     </Card>
                 </div>
 
