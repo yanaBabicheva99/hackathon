@@ -1,0 +1,25 @@
+.TestContainer {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+   
+   }
+
+.TestContainer__content{
+    padding: 10px;
+   
+}
+
+.TestContainer__btns {
+    padding: 15px;
+
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.TestContainer__inputs {
+  display: block;
+  
+}

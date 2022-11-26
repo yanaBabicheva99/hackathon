@@ -1,0 +1,10 @@
+.taskLists__Content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  
+}
+
+.taskLists{
+    padding-top: 30px;
+}
