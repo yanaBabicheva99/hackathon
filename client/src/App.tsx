@@ -6,18 +6,20 @@ import "antd/dist/reset.css";
 
 import { createStore } from "./store/store";
 import { Provider } from "react-redux";
-import { Routes } from "./component/routs";
+
+import Headline from "./component/Head/Headline";
+import {Routes} from "./component/routs";
 
 const store: any = createStore();
 
 function App() {
   return (
-      <div className='App'>
-          <Provider store={store}>
-              <Routes/>
-              <ToastContainer position="top-center"/>
-          </Provider>
-      </div>
+
+      <Provider store={store}>
+          <Headline />
+          <Routes />
+          <ToastContainer position="top-center"/>
+      </Provider>
   );
 }
 

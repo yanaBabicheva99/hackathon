@@ -1,11 +1,37 @@
 .taskLists__Content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 5px;
+    margin-right: 5px;
   
 }
 
 .taskLists{
     height: calc(100vh - 30px);
     padding-top: 30px;
+}
+
+.taskLists__content__cardl {
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 900px) {
+    .taskLists__Content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .taskLists {
+        padding-top: 5px;
+    }
+
+    .taskLists__content__cardl {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+
 }

@@ -1,23 +1,24 @@
-import React from 'react';
-import './Questions.css'
-import {Button, Card, Checkbox, Space} from "antd";
+import React, { FC } from "react";
+import "./Questions.css";
+import { Button, Card, Checkbox, Space } from "antd";
+import { questionI } from "./SingleQuestion";
 
-export const MultiQuestion = () => {
-    return (
-        <div className={'multi-wrapper'}>
-            <Card title={'Вопрос 1: Где обитают пингвины?'}>
-                <div className={'multiq-card'}>
-                    <Checkbox.Group name="checkboxgroup" >
-                        <Space direction='vertical'>
-                            <Checkbox value={1}>Крутой вопрос</Checkbox>
-                            <Checkbox value={2}>Согласен</Checkbox>
-                            <Checkbox value={3}>Спасибо за внимание</Checkbox>
-                            <Checkbox value={4}>Пожалуйста</Checkbox>
-                        </Space>
-                    </Checkbox.Group>
-                    <Button style={{marginTop: '5px'}}>Подтвердить</Button>
-                </div>
-            </Card>
+export const MultiQuestion: FC<questionI> = ({ task }) => {
+  return (
+    <div className={"multi-wrapper"}>
+      <Card title={task.title}>
+        <div className={"multiq-card"}>
+          <p>{task.body}</p>
+          <Checkbox.Group name="checkboxgroup">
+            <Space direction="vertical">
+              {task.variants.map((variant, index) => (
+                <Checkbox value={index}>{variant.value}</Checkbox>
+              ))}
+            </Space>
+          </Checkbox.Group>
+          <Button style={{ marginTop: "5px" }}>Подтвердить</Button>
         </div>
-    );
+      </Card>
+    </div>
+  );
 };

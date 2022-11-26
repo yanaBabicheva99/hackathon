@@ -1,4 +1,6 @@
+const taskModel = require("../models/taskModel");
 const testModel = require("../models/testModel");
+const variantModel = require("../models/variantModel");
 const testService = require("../service/test-service");
 
 class TestController {
@@ -47,12 +49,39 @@ class TestController {
       const { id } = req.query;
       let test = [];
       if (!id) test = await testModel.find({});
-      else test = await testModel.findOne({ _id: id });
+      else {
+        test = await testModel.findOne({ _id: id });
+        const arrTasks = await Promise.all(
+          test.tasks_id.map(async (task_id) => {
+            const candidateTask = await taskModel.findOne({ _id: task_id });
+            const variants = await Promise.all(
+              candidateTask.variants_id.map(async (variant_id) => {
+                const candidateVariant = await variantModel.findOne({
+                  _id: variant_id,
+                });
+                return candidateVariant;
+              })
+            );
+            return {
+              _id: candidateTask._id,
+              title: candidateTask.title,
+              description: candidateTask.description,
+              type: candidateTask.type,
+              variants: variants,
+            };
+          })
+        );
+        let result = {
+          name: test.name,
+          description: test.description,
+          tasks: arrTasks,
+        };
+        return res.json({ status: "OK", result });
+      }
       return res.json({ status: "OK", result: test });
     } catch (e) {
       next(e);
     }
-
   };
 }
 
