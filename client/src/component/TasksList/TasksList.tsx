@@ -4,7 +4,7 @@ import './TasksList.css'
 
 export const TasksList = () => {
     return (
-        <div className={'main-wrapper'}>
+        <div className={'task-wrapper'}>
             <div className={'tasks'}>
                 <div className={'task'}>
                     <div>
