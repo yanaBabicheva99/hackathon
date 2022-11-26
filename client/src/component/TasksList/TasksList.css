@@ -1,0 +1,33 @@
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.task {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid whitesmoke;
+    border-radius: 20px;
+    width: 400px;
+    padding: 5px;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.button-element {
+    margin-right: 5px;
+}

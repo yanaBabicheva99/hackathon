@@ -14,6 +14,7 @@ import {MultiQuestion} from "./QuestionsTmp/MultiQuestion";
 import {FreeQuestion} from "./QuestionsTmp/FreeQuestion";
 import {TestPage} from "./TestPage/TestPage";
 import {createTest} from "./createTest/createTest"
+import {TasksList} from "./TasksList/TasksList";
 
 export const Routes = () => {
   const select = useSelector(getToken());
@@ -41,6 +42,7 @@ export const Routes = () => {
           <Route path={'/freequestion'} element={<FreeQuestion />} />
           <Route path={'/test'} element={<TestPage />} />
           <Route path={'/createtest'} element={<createTest />} />
+          <Route path={'/taskslist'} element={<TasksList />} />
 
 
       </Switch>
