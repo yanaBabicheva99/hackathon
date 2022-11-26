@@ -8,7 +8,7 @@ export const TasksList = () => {
             <div className={'tasks'}>
                 <div className={'task'}>
                     <div>
-                        Задача 1
+                        Тест 1
                     </div>
                     <div className={'buttons'}>
                         <div className={'button-element'}>
@@ -21,7 +21,7 @@ export const TasksList = () => {
                 </div>
                 <div className={'task'}>
                     <div>
-                        Задача 2
+                        Тест 2
                     </div>
                     <div className={'buttons'}>
                         <div className={'button-element'}>
