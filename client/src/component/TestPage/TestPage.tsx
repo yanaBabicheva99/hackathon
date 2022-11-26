@@ -1,25 +1,47 @@
-import React from 'react';
-import './TestPage.css'
-import {SingleQuestion} from "../QuestionsTmp/SingleQuestion";
-import {MultiQuestion} from "../QuestionsTmp/MultiQuestion";
-import {FreeQuestion} from "../QuestionsTmp/FreeQuestion";
-import {Button, Card} from "antd";
+import React, { useEffect } from "react";
+import "./TestPage.css";
+import { SingleQuestion } from "../QuestionsTmp/SingleQuestion";
+import { MultiQuestion } from "../QuestionsTmp/MultiQuestion";
+import { FreeQuestion } from "../QuestionsTmp/FreeQuestion";
+import { Button, Card } from "antd";
+import { useParams } from "react-router-dom";
+import { useGetTestQuery } from "../../services/testService";
 
 export const TestPage = () => {
-    return (
-        <div className={'test-wrapper'}>
-            <Card title={'Страница теста'} extra={'Таймер: 02:58:59'} style={{width: '100%'}}>
-                <div className={'test-item'}>
-                    <SingleQuestion/>
-                </div>
-                <div className={'test-item'}>
-                    <MultiQuestion/>
-                </div>
-                <div className={'test-item'}>
-                    <FreeQuestion/>
-                </div>
-                <Button type={'primary'} style={{width: '100%'}}>Завершить тест</Button>
-            </Card>
-        </div>
-    );
+  const params = useParams();
+  const { data, error, isLoading } = useGetTestQuery(`${params.id}`);
+  return (
+    <div className={"test-wrapper"}>
+      <Card
+        title={data && data?.name}
+        extra={"Таймер: 02:58:59"}
+        style={{ width: "100%" }}
+      >
+        <p>{data && data?.description}</p>
+        {data?.tasks.map((task) => {
+          if (task.type === "one")
+            return (
+              <div>
+                <SingleQuestion task={task} />
+              </div>
+            );
+          if (task.type === "many")
+            return (
+              <div>
+                <MultiQuestion task={task} />
+              </div>
+            );
+          if (task.type === "input")
+            return (
+              <div>
+                <FreeQuestion task={task} />
+              </div>
+            );
+        })}
+        <Button type={"primary"} style={{ width: "100%" }}>
+          Завершить тест
+        </Button>
+      </Card>
+    </div>
+  );
 };

@@ -25,9 +25,9 @@ export const Routes = () => {
   if (select) {
     return (
       <Switch>
+        <Route path="/login" element={<Navigate to="/" replace />} />
         <Route path="/" element={<Main />}></Route>
         <Route path={"/tasks"} element={<Tasks />}></Route>
-        <Route path="/login" element={<Navigate to="/" replace />} />
 
         <Route path="/personalpage" element={<Personal />}></Route>
         <Route path="/headline" element={<Headline />}></Route>
@@ -37,7 +37,7 @@ export const Routes = () => {
         <Route path={"/singlequestion"} element={<SingleQuestion />} />
         <Route path={"/multiquestion"} element={<MultiQuestion />} />
         <Route path={"/freequestion"} element={<FreeQuestion />} />
-        <Route path={"/test"} element={<TestPage />} />
+        <Route path={"/test/:id"} element={<TestPage />} />
         <Route path={"/createtest"} element={<CreateTest />} />
         <Route path={"/tasklist"} element={<TaskList />} />
         <Route path={"/tasklists"} element={<TaskLists />} />
@@ -46,7 +46,7 @@ export const Routes = () => {
   } else {
     return (
       <Switch>
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<Login />}></Route>
       </Switch>
     );

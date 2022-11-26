@@ -1,23 +1,37 @@
-import React from 'react';
-import './Questions.css'
-import {Button, Card, Radio, Space} from "antd";
+import React, { FC } from "react";
+import "./Questions.css";
+import { Button, Card, Radio, Space } from "antd";
 
-export const SingleQuestion = () => {
-    return (
-        <div className={'single-wrapper'}>
-            <Card title={'Вопрос 1: Где обитают пингвины?'}>
-                <div className={'singleq-card'}>
-                    <Radio.Group name="radiogroup" defaultValue={1}>
-                        <Space direction='vertical'>
-                            <Radio value={1}>Крутой вопрос</Radio>
-                            <Radio value={2}>Согласен</Radio>
-                            <Radio value={3}>Спасибо за внимание</Radio>
-                            <Radio value={4}>Пожалуйста</Radio>
-                        </Space>
-                    </Radio.Group>
-                    <Button style={{marginTop: '5px'}} className={'button-wrapper'}>Подтвердить</Button>
-                </div>
-            </Card>
+export interface questionI {
+  task: {
+    title: string;
+    body: string;
+    type: "many" | "one" | "input";
+    variants: {
+      value: string;
+      isAnswer?: boolean;
+    }[];
+  };
+}
+export const SingleQuestion: FC<questionI> = ({ task }) => {
+  debugger;
+  return (
+    <div className={"single-wrapper"}>
+      <Card title={task.title}>
+        <p>{task.body}</p>
+        <div className={"singleq-card"}>
+          <Radio.Group name="radiogroup" defaultValue={1}>
+            <Space direction="vertical">
+              {task.variants.map((variant, index) => (
+                <Radio value={index}>{variant.value}</Radio>
+              ))}
+            </Space>
+          </Radio.Group>
+          <Button style={{ marginTop: "5px" }} className={"button-wrapper"}>
+            Подтвердить
+          </Button>
         </div>
-    );
+      </Card>
+    </div>
+  );
 };

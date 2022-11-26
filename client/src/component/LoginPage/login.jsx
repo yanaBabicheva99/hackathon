@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 import { useSignInMutation } from "../../services/authService";
 import { createToken, getToken } from "../../services/tokenService";
@@ -31,12 +31,12 @@ const LoginForm = () => {
   };
 
   const handleSubmit = async (content) => {
-    console.log('uiu3')
+    console.log("uiu3");
     console.log(content);
     signIn(content)
       .unwrap()
       .then((data) => dispatch(createToken(data)))
-      .catch(({data: {message}}) => toast.error(message));
+      .catch(({ data: { message } }) => toast.error(message));
   };
 
   // const {data, error, isLoading} = useGetUsersQuery();
@@ -80,9 +80,15 @@ const LoginForm = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
-                {errors.password && touched.password && <p>{errors.password}</p>}
+                {errors.password && touched.password && (
+                  <p>{errors.password}</p>
+                )}
 
-                <Button type="primary" htmlType='submit' className="login__button">
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  className="login__button"
+                >
                   Войти
                 </Button>
               </form>
