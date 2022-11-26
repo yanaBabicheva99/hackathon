@@ -31,5 +31,6 @@ router.get(
   userController.getUsers
 );
 router.get("/user/:id", authMiddleware, userController.getUser);
+router.put("/tests/save", userController.saveTest);
 
 module.exports = router;

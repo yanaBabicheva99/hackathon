@@ -1,5 +1,7 @@
+const { ObjectId } = require("mongodb");
+const userModel = require("../models/userModel");
 const userService = require("../service/user-service");
-
+const jwt = require("jsonwebtoken");
 class UserController {
   async registration(req, res, next) {
     try {
@@ -82,11 +84,38 @@ class UserController {
       next(err);
     }
   }
+
   //   --> tests <--
 
   async saveTest(req, res, next) {
     try {
-      // const {test_id, task}
+      const token = req.headers.authorization?.split(" ")[1];
+      if (!token) {
+        throw res.status(400).json({
+          status: "INVALID_DATA",
+        });
+      }
+      const user = jwt.verify(token, process.env.JWT_ACCESS_SECRET);
+
+      const { test_id, tasks } = req.body;
+      const candidate = await userModel.findOne({ _id: new ObjectId(user.id) });
+      if (!candidate) {
+        throw res.status(400).json({
+          status: "INVALID_DATA",
+        });
+      }
+      await candidate.updateOne(
+        {
+          $set: {
+            tests: {
+              test_id,
+              tasks,
+            },
+          },
+        },
+        { upsert: true }
+      );
+      return res.json(candidate);
     } catch (err) {
       next(err);
     }
