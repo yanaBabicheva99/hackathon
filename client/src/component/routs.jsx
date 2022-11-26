@@ -13,9 +13,9 @@ import { SingleQuestion } from "./QuestionsTmp/SingleQuestion";
 import { MultiQuestion } from "./QuestionsTmp/MultiQuestion";
 import { FreeQuestion } from "./QuestionsTmp/FreeQuestion";
 import { TestPage } from "./TestPage/TestPage";
-import CreateTest from "./createTest/createTest";
 import TaskList from "./TaskLists/TaskList/TaskList";
 import TaskLists from "./TaskLists/TaskLists";
+import CreateTest from "./createTest/createTest";
 
 export const Routes = () => {
   const select = useSelector(getToken());
@@ -25,6 +25,7 @@ export const Routes = () => {
     return (
       <Switch>
         <Route path="/" element={<Main />}></Route>
+        <Route path={"/tasks"} element={<Tasks />}></Route>
         <Route path="/login" element={<Navigate to="/" replace />} />
 
         <Route path="/personalpage" element={<Personal />}></Route>

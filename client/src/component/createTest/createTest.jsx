@@ -1,7 +1,8 @@
-import React from "react";
-import { Card } from "antd";
-import "./createTest.css";
-import { Input, Button, Radio } from "antd";
+
+import React from 'react'
+import { Card } from 'antd';
+import './createTest.css'
+import { Input, Button, Radio } from 'antd';
 
 const CreateTest = () => {
   return (
@@ -11,6 +12,7 @@ const CreateTest = () => {
         style={{
           width: "30%",
         }}
+
       >
         <div className="TestContainer__content">
           <div className="TestContainer__inputs">
