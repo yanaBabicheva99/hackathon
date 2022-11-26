@@ -7,13 +7,13 @@ import Main from "./Main/main";
 import Login from "./LoginPage/login";
 import Personal from "./PersonalCabinet/personal";
 import Register from "./RegisterPage/register";
-import { Exhibition } from './Exhibition/Exhibition';
 import Headline from "./Head/Headline";
 import {Exhibition} from './Exhibition/Exhibition';
 import {SingleQuestion} from "./QuestionsTmp/SingleQuestion";
 import {MultiQuestion} from "./QuestionsTmp/MultiQuestion";
 import {FreeQuestion} from "./QuestionsTmp/FreeQuestion";
 import {TestPage} from "./TestPage/TestPage";
+import {createTest} from "./createTest/createTest"
 
 export const Routes = () => {
   const select = useSelector(getToken());
@@ -40,6 +40,8 @@ export const Routes = () => {
           <Route path={'/multiquestion'} element={<MultiQuestion />} />
           <Route path={'/freequestion'} element={<FreeQuestion />} />
           <Route path={'/test'} element={<TestPage />} />
+          <Route path={'/createtest'} element={<createTest />} />
+
 
       </Switch>
     );
