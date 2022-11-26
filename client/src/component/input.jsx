@@ -17,6 +17,7 @@ const MyInput = ({
         value={value}
         onChange={onChange}
         onBlur={onBlur}
+       
       />
       {touched && errors && (
         <div>
