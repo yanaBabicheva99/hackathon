@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card } from 'antd';
-import './CreateTest.css'
+import './createTest.css'
 import { Input, Button, Radio } from 'antd';
 
 const CreateTest = () => {
@@ -8,9 +8,6 @@ const CreateTest = () => {
     <div className='TestContainer'>
       <Card
         title="Создание тест"
-        style={{
-          width: '30%',
-        }}
       >
 
 
