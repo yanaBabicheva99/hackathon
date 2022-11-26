@@ -16,6 +16,7 @@ import { TestPage } from "./TestPage/TestPage";
 import TaskList from "./TaskLists/TaskList/TaskList";
 import TaskLists from "./TaskLists/TaskLists";
 import CreateTest from "./createTest/createTest";
+import Tasks from "./TaskPage/tasks";
 
 export const Routes = () => {
   const select = useSelector(getToken());
