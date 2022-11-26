@@ -1,17 +1,5 @@
 const { Schema, model } = require("mongoose");
 
-const tasks = [
-  {
-    task_id: { type: Schema.Types.ObjectId },
-    variants_id: { type: Schema.Types.ObjectId },
-  },
-];
-const test = [
-  {
-    test_id: { type: Schema.Types.ObjectId },
-    tasks: tasks,
-  },
-];
 const UserSchema = new Schema({
   email: {
     type: String,
@@ -40,7 +28,19 @@ const UserSchema = new Schema({
     type: String,
     ref: "Role",
   },
-  tests_id: test,
+  tests: [
+    {
+      test_id: { type: Schema.Types.ObjectId, ref: "Test" },
+      tasks: [
+        {
+          task_id: { type: Schema.Types.ObjectId, ref: "Task" },
+          variants_id: [
+            { type: Schema.Types.ObjectId, ref: "Variant", require: false },
+          ],
+        },
+      ],
+    },
+  ],
 });
 
 module.exports = model("User", UserSchema);

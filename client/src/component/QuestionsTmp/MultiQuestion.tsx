@@ -5,7 +5,7 @@ import {Button, Card, Checkbox, Space} from "antd";
 export const MultiQuestion = () => {
     return (
         <div className={'multi-wrapper'}>
-            <Card title={'Вопрос 1: Где обитают пингвины?'} style={{width: '500px'}}>
+            <Card title={'Вопрос 1: Где обитают пингвины?'}>
                 <div className={'multiq-card'}>
                     <Checkbox.Group name="checkboxgroup" >
                         <Space direction='vertical'>
@@ -15,7 +15,7 @@ export const MultiQuestion = () => {
                             <Checkbox value={4}>Пожалуйста</Checkbox>
                         </Space>
                     </Checkbox.Group>
-                    <Button style={{marginTop: '5px'}} type={'primary'}>Подтвердить</Button>
+                    <Button style={{marginTop: '5px'}}>Подтвердить</Button>
                 </div>
             </Card>
         </div>

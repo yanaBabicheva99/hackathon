@@ -2,6 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1daf631a-ef60-48ef-849e-7a8e627e9481" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/component/Head/Headline.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/Head/Headline.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/TaskLists/TaskList/TaskList.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/TaskLists/TaskList/TaskList.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/TaskLists/TaskLists.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/TaskLists/TaskLists.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/TasksList/TasksList.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/TasksList/TasksList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/TestPage/TestPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/TestPage/TestPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/createTest/createTest.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/createTest/createTest.jsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/config/config.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/controllers/role-controller.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/middleware/roleMiddleware.js" afterDir="false" />
@@ -10,10 +22,16 @@
       <change afterPath="$PROJECT_DIR$/server/models/testModel.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/models/variantModel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/TaskPage/tasks.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/TaskPage/tasks.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/PersonalCabinet/personal.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/PersonalCabinet/personal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/PersonalCabinet/personal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/PersonalCabinet/personal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/QuestionsTmp/FreeQuestion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/QuestionsTmp/FreeQuestion.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/QuestionsTmp/MultiQuestion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/QuestionsTmp/MultiQuestion.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/QuestionsTmp/Questions.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/QuestionsTmp/Questions.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/QuestionsTmp/SingleQuestion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/QuestionsTmp/SingleQuestion.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/input.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/input.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/routs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/routs.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/types/UserServiceTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/form/taskForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/types/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/user-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user-controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/dtos/user-dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dtos/user-dto.js" afterDir="false" />
