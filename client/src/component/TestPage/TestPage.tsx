@@ -15,7 +15,8 @@ export const TestPage = () => {
       <Card
         title={data && data?.name}
         extra={"Таймер: 02:58:59"}
-        style={{ width: "100%" }}
+        style={{ width: "100%", height: "100%" }}
+        loading={isLoading}
       >
         <p>{data && data?.description}</p>
         {data?.tasks.map((task) => {

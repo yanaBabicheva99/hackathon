@@ -14,13 +14,9 @@ import { MultiQuestion } from "./QuestionsTmp/MultiQuestion";
 import { FreeQuestion } from "./QuestionsTmp/FreeQuestion";
 import { TestPage } from "./TestPage/TestPage";
 // import CreateTest from "./CreateTest/CreateTest";
-import { SingleQuestion } from "./QuestionsTmp/SingleQuestion";
-import { MultiQuestion } from "./QuestionsTmp/MultiQuestion";
-import { FreeQuestion } from "./QuestionsTmp/FreeQuestion";
-import { TestPage } from "./TestPage/TestPage";
 import TaskList from "./TaskLists/TaskList/TaskList";
 import TaskLists from "./TaskLists/TaskLists";
-// import CreateTest from "./createTest/createTest";
+import CreateTest from "./createTest/createTest";
 import Tasks from "./TaskPage/tasks";
 
 export const Routes = () => {

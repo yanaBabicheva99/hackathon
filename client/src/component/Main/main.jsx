@@ -46,7 +46,7 @@ const Main = () => {
         <Card title={"Тесты"}>
           <div className={"testcard-wrapper"}>
             {dataTests.map((test) => (
-              <Card title={test.name} style={{ width: "100%" }}>
+              <Card title={test.name} style={{ width: "100%" }} size="small">
                 <div
                   style={{ display: "flex", justifyContent: "space-between" }}
                 >
