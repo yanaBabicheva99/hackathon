@@ -12,11 +12,11 @@ import {Exhibition} from './Exhibition/Exhibition';
 import {SingleQuestion} from "./QuestionsTmp/SingleQuestion";
 import {MultiQuestion} from "./QuestionsTmp/MultiQuestion";
 import {FreeQuestion} from "./QuestionsTmp/FreeQuestion";
-import Tasks from './TaskPage/tasks';
+import TestsList from './TestListPage/testsList';
 
 import {TestPage} from "./TestPage/TestPage";
 import TaskList from "./TaskLists/TaskList/TaskList";
-import TaskLists from "./TaskLists/TaskLists";
+import TaskLists from "./TaskLists/TestLists";
 import CreateTest from "./createTest/createTest";
 
 
@@ -27,9 +27,9 @@ export const Routes = () => {
     return (
       <Switch>
         <Route path="/" element={<Main />}></Route>
-        <Route path={'/tasks'} element={<Tasks />}></Route>
+        {/*<Route path={'/tasks'} element={<TestsList />}></Route>*/}
         <Route path="/login" element={<Navigate to="/" replace />} />
-        <Route path={'/tasks'} element={<Tasks />}></Route>
+        <Route path={'/tests'} element={<TestsList />}></Route>
       </Switch>
     );
   } else {

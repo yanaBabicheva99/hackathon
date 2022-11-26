@@ -1,10 +1,9 @@
 import React from 'react';
-import {Card, Button} from 'antd';
-import {EditOutlined, DeleteOutlined} from '@ant-design/icons';
-import './TaskLists.css'
-import {TasksList} from "../TasksList/TasksList";
+import {Card} from 'antd';
+import './TestLists.css'
+import TestForm from '../form/testForm';
 
-const TaskLists = () => {
+const TaskLists = ({children, handleSubmit}) => {
     return (
         <div className='taskLists' style={{
             display: 'flex',
@@ -12,7 +11,7 @@ const TaskLists = () => {
             justifyContent: 'center',
 
         }}>
-            <Card title='Список задач'
+            <Card title='Список тестов'
                   headStyle={{
                       textAlign: 'center',
                       width: '800px',
@@ -24,16 +23,16 @@ const TaskLists = () => {
                   }}
             >
                 <div className='taskLists__Content'>
-                    <Card title='Добавление задач'
+                    <Card title='Добавление тестов'
                           style={{textAlign: 'center', height: '700px'}}
                     >
-
+                      <TestForm handleSubmit={handleSubmit}/>
                     </Card>
 
-                    <Card title='Список задач'
+                    <Card title='Список Тестов'
                           style={{textAlign: 'center'}}
                     >
-                        <TasksList/>
+                      {children}
                     </Card>
                 </div>
 

@@ -12,10 +12,12 @@ const store: any = createStore();
 
 function App() {
   return (
-      <Provider store={store}>
-          <Routes/>
-          <ToastContainer position="top-center"/>
-      </Provider>
+      <div className='App'>
+          <Provider store={store}>
+              <Routes/>
+              <ToastContainer position="top-center"/>
+          </Provider>
+      </div>
   );
 }
 

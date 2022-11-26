@@ -2,21 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1daf631a-ef60-48ef-849e-7a8e627e9481" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/config/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controllers/role-controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/middleware/roleMiddleware.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/models/roleModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/models/taskModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/models/testModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/models/variantModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/user-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user-controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/dtos/user-dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dtos/user-dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/userModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/userModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/service/mail-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/mail-service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/service/user-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/user-service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/assets/close.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/modal/Modal.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/component/modal/Modal.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/LoginPage/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/LoginPage/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/TaskLists/TaskLists.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/TaskLists/TestLists.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/TaskLists/TaskLists.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/TaskLists/TestLists.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/TaskPage/tasks.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/TestListPage/testsList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/TasksList/TasksList.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/TestList/TestList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/TasksList/TasksList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/TestList/TestList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/form/taskForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/form/testForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/routs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/routs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/services/testService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/services/testService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +28,7 @@
       <list>
         <option value="TypeScript File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -46,19 +47,20 @@
     <option name="showMembers" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/ Users/Babic/WebstormProjects/crm_fullstack_rtk/src/app/components/pages/personal/Personal.jsx&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\ Users\\Babic\\WebstormProjects\\my-app\\client\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/ Users/Babic/WebstormProjects/crm_fullstack_rtk/src/app/components/form/productForm/ProductFormEdit.jsx",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\ Users\\Babic\\WebstormProjects\\my-app\\client\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\ Users\Babic\WebstormProjects\my-app\client" />

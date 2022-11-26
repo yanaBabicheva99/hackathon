@@ -15,3 +15,7 @@
 .login__button {
   margin: 10px 0;
 }
+.wrapper__btn {
+  display: flex;
+  justify-content: space-between;
+}

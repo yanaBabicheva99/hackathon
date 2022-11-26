@@ -33,7 +33,7 @@ export const testAPI = createApi({
         changeTest: build.mutation<Test, object>({
             query: (content: {id: string, data: Test}) => ({
                 url: `tests/${content.id}`,
-                method: "POST",
+                method: "PUT",
                 body: content.data,
             }),
             invalidatesTags: ['Test']
