@@ -8,7 +8,7 @@ import {Button, Card} from "antd";
 export const TestPage = () => {
     return (
         <div className={'test-wrapper'}>
-            <Card title={'Страница теста'} extra={'Таймер: 02:58:59'}>
+            <Card title={'Страница теста'} extra={'Таймер: 02:58:59'} style={{width: '100%'}}>
                 <div className={'test-item'}>
                     <SingleQuestion/>
                 </div>
