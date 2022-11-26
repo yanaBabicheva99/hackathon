@@ -12,10 +12,10 @@ const TaskList = () => {
             justifyContent: 'center',
       
         }}>
-            <Card title='Список задач'
+            <Card title='Список тестов'
                 headStyle={{
                    textAlign: 'center',
-                    width: '500px',
+                    width: '100%',
                 }}>
                 <div className='taskbody__tasks'>
                     <Card title='Задача 1' >

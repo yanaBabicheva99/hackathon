@@ -10,7 +10,7 @@ const CreateTest = () => {
       <Card
         title="Создание тест"
         style={{
-          width: "30%",
+          width: "100%",
         }}
 
       >
