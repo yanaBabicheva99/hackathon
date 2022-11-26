@@ -14,24 +14,44 @@ import {MultiQuestion} from "./QuestionsTmp/MultiQuestion";
 import {FreeQuestion} from "./QuestionsTmp/FreeQuestion";
 import {TestPage} from "./TestPage/TestPage";
 // import CreateTest from "./CreateTest/CreateTest";
+import { Exhibition } from "./Exhibition/Exhibition";
+import { SingleQuestion } from "./QuestionsTmp/SingleQuestion";
+import { MultiQuestion } from "./QuestionsTmp/MultiQuestion";
+import { FreeQuestion } from "./QuestionsTmp/FreeQuestion";
+import { TestPage } from "./TestPage/TestPage";
 import TaskList from "./TaskLists/TaskList/TaskList";
 import TaskLists from "./TaskLists/TaskLists";
-
+// import CreateTest from "./createTest/createTest";
+import Tasks from "./TaskPage/tasks";
 
 export const Routes = () => {
   const select = useSelector(getToken());
+  console.log("select");
+  console.log(select);
   if (select) {
     return (
       <Switch>
         <Route path="/" element={<Main />}></Route>
+        <Route path={"/tasks"} element={<Tasks />}></Route>
         <Route path="/login" element={<Navigate to="/" replace />} />
+
+        <Route path="/personalpage" element={<Personal />}></Route>
+        <Route path="/headline" element={<Headline />}></Route>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path={"/exhibition"} element={<Exhibition />} />
+        {/*<Route path="*" element={<Navigate to="/login" replace />} />*/}
+        <Route path={"/singlequestion"} element={<SingleQuestion />} />
+        <Route path={"/multiquestion"} element={<MultiQuestion />} />
+        <Route path={"/freequestion"} element={<FreeQuestion />} />
+        <Route path={"/test"} element={<TestPage />} />
+        <Route path={"/createtest"} element={<CreateTest />} />
+        <Route path={"/tasklist"} element={<TaskList />} />
+        <Route path={"/tasklists"} element={<TaskLists />} />
       </Switch>
     );
   } else {
     return (
       <Switch>
-        <Route path="/login" element={<Login />}></Route>
-
         <Route path="*" element={<Navigate to="/login" replace />} />
         <Route path="/personalpage" element={<Personal />}></Route>
         <Route path="/headline" element={<Headline />}></Route>
@@ -46,6 +66,7 @@ export const Routes = () => {
           {/* <Route path={'/createtest'} element={<CreateTest/>} /> */}
           <Route path={'/tasklist'} element={<TaskList/>} />
           <Route path={'/tasklists'} element={<TaskLists/>} />
+        <Route path="/login" element={<Login />}></Route>
       </Switch>
     );
   }

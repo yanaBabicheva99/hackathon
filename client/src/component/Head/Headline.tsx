@@ -12,13 +12,17 @@ const linkStyle = {
 
 const Headline: React.FC = () => (
   <Layout>
-    <Header style={{ position: 'sticky', top: 0, zIndex: 1, width: '100%' }}>
+    <Header style={{ position: 'sticky', top: 0, zIndex: 1, width: '100%', backgroundColor: "white", border: '1px solid whitesmoke' }}>
       <div className="logo" />
       <Menu
         theme="dark"
         mode="horizontal"
+        style={{backgroundColor: 'white', height: '95%'}}
       >
+
         <Link style={linkStyle} to="/personalpage">Personal</Link>
+        <Link className={'linkStyle'} to="/">Главная страница</Link>
+        <Link className={'linkStyle'} style={{marginLeft: '10px'}} to="/tasklists">Тесты</Link>
       </Menu>
     </Header>
   </Layout>

@@ -1,0 +1,84 @@
+Index: client/src/types/index.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>export * from './TokenServiceType';
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/src/types/index.ts b/client/src/types/index.ts
+--- a/client/src/types/index.ts	(revision e74b3f8b58c2c964f622de0929f1747468f6e703)
++++ b/client/src/types/index.ts	(date 1669460915273)
+@@ -1,1 +1,2 @@
+-export * from './TokenServiceType';
+\ No newline at end of file
++export * from './TokenServiceType';
++export * from './TestServiceTypes';
+\ No newline at end of file
+Index: client/src/services/testService.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/src/services/testService.ts b/client/src/services/testService.ts
+new file mode 100644
+--- /dev/null	(date 1669460915269)
++++ b/client/src/services/testService.ts	(date 1669460915269)
+@@ -0,0 +1,57 @@
++import { createApi } from "@reduxjs/toolkit/dist/query/react";
++import customFetchBase from "../middleware/interceptor";
++import {Test} from "../types";
++
++
++export const testAPI = createApi({
++    reducerPath: "testAPI",
++    baseQuery: customFetchBase,
++    tagTypes: ['Test'],
++    endpoints: (build) => ({
++        getTests: build.query<Test[], void>({
++            query: () => ({
++                url: 'tests',
++            }),
++            transformResponse: (response: any) => response.result,
++            providesTags: (result) => ['Test'],
++        }),
++        getTest: build.query<Test, string>({
++            query: (id: string) => ({
++                url: `tests/${id}`,
++            }),
++            transformResponse: (response: any) => response.result,
++            providesTags: (result) => ['Test'],
++        }),
++        createTest: build.mutation<Test, Test>({
++            query: (content) => ({
++                url: "tests",
++                method: "POST",
++                body: content,
++            }),
++            invalidatesTags: ['Test']
++        }),
++        changeTest: build.mutation<Test, object>({
++            query: (content: {id: string, data: Test}) => ({
++                url: `tests/${content.id}`,
++                method: "POST",
++                body: content.data,
++            }),
++            invalidatesTags: ['Test']
++        }),
++        deleteTest: build.mutation<Test, string>({
++            query: (id: string) => ({
++                url: `tests/${id}`,
++                method: "DELETE",
++            }),
++            invalidatesTags: ['Test']
++        }),
++    }),
++});
++
++
++export const {
++    useChangeTestMutation,
++    useCreateTestMutation,
++    useDeleteTestMutation,
++    useGetTestsQuery
++} = testAPI;
+\ No newline at end of file

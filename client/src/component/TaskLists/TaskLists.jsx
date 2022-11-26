@@ -1,42 +1,25 @@
 import React from 'react';
-import { Card, Button } from 'antd';
-import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import {Card } from 'antd';
 import './TaskLists.css'
+import {TasksList} from "../TasksList/TasksList";
 
 const TaskLists = () => {
     return (
-        <div className='taskLists' style={{
-            display: 'flex',
-            margin: '0 auto',
-            justifyContent: 'center',
-
-        }}>
-            <Card title='Список задач'
-                headStyle={{
-                    textAlign: 'center',
-                    width: '800px',
-                    
-                }}
-                style ={{
-                    width: '800px',
-                    height: '800px'
-                }}
-                >
+        <div className='taskLists'>
                 <div className='taskLists__Content'>
-                    <Card title='Добавление задач'
-                        style={{ textAlign: 'center', height: '700px' }}
-                    >
+                        <Card title='Добавление тестов'
+                              style={{textAlign: 'center', width: '100%'}}
+                        >
 
-                    </Card>
-
-                    <Card title='Список задач'
-                        style={{ textAlign: 'center' }}
-                    >
-
-                    </Card>
+                        </Card>
+                    <div className={'taskLists__content__cardl'}>
+                        <Card title='Список тестов'
+                              style={{textAlign: 'center', width: '100%'}}
+                        >
+                            <TasksList/>
+                        </Card>
+                    </div>
                 </div>
-
-            </Card>
         </div>
     );
 }

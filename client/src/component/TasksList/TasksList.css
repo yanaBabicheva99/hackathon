@@ -1,0 +1,34 @@
+.task-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.task {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid whitesmoke;
+    border-radius: 20px;
+    padding: 5px;
+    width: 500px;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.button-element {
+    margin-right: 5px;
+}
+
+@media screen and (max-width: 900px) {
+    .task {
+        width: 100%;
+    }
+}
