@@ -18,7 +18,7 @@ const baseUrl = `http://localhost:5000/api/`;
             const token = (getState() as RootState).token.tokenValue;
             if (token && endpoint !== 'refresh') {
                 headers.set('authorization', `Bearer ${token}`);
-                headers.set('content-type', 'text/plain');
+                // headers.set('content-type', 'text/plain');
             }
             return headers;
         },

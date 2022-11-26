@@ -1,4 +1,7 @@
 import React from "react";
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 import "antd/dist/reset.css";
 
 import { createStore } from "./store/store";
@@ -9,9 +12,10 @@ const store: any = createStore();
 
 function App() {
   return (
-    <Provider store={store}>
-      <Routes />
-    </Provider>
+      <Provider store={store}>
+          <Routes/>
+          <ToastContainer position="top-center"/>
+      </Provider>
   );
 }
 

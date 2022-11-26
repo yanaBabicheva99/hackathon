@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8411a366-7034-45de-a242-2b78856147f9" name="Changes" comment="Tests" />
+    <list default="true" id="1daf631a-ef60-48ef-849e-7a8e627e9481" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/server/config/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controllers/role-controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/middleware/roleMiddleware.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/models/roleModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/models/taskModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/models/testModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/models/variantModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/user-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user-controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/dtos/user-dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/dtos/user-dto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/userModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/userModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/service/mail-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/mail-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/service/user-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/user-service.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,96 +26,89 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
-        <option value="CSS File" />
+        <option value="TypeScript File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2I0EheRFB4qpkhpGERhOz3fMjBM" />
+  <component name="ProjectId" id="2HqnQSkgrIlU8nCwhTP9Wrq9lpy" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/raindesu/Coding/React/hackathon/client",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/ Users/Babic/WebstormProjects/crm_fullstack_rtk/src/app/components/pages/personal/Personal.jsx&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\ Users\\Babic\\WebstormProjects\\my-app\\client\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/client" />
+      <recent name="C:\ Users\Babic\WebstormProjects\my-app\client" />
+      <recent name="C:\ Users\Babic\WebstormProjects\my-app\server" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/client/src/component/Main/ExhibitionItem" />
-      <recent name="$PROJECT_DIR$/client/src/component/Main" />
-      <recent name="$PROJECT_DIR$/client/src/component" />
-      <recent name="$PROJECT_DIR$/client/src" />
+      <recent name="C:\ Users\Babic\WebstormProjects\my-app\client\src\component" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8411a366-7034-45de-a242-2b78856147f9" name="Changes" comment="" />
-      <created>1669310220505</created>
+      <changelist id="1daf631a-ef60-48ef-849e-7a8e627e9481" name="Changes" comment="" />
+      <created>1669021464372</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1669310220505</updated>
-      <workItem from="1669310222855" duration="40000" />
-      <workItem from="1669376945811" duration="24157000" />
+      <updated>1669021464372</updated>
+      <workItem from="1669021466646" duration="12259000" />
+      <workItem from="1669034038149" duration="202000" />
+      <workItem from="1669034258796" duration="20517000" />
+      <workItem from="1669098417590" duration="8462000" />
+      <workItem from="1669106994446" duration="12083000" />
+      <workItem from="1669121365638" duration="2030000" />
+      <workItem from="1669123443012" duration="4625000" />
+      <workItem from="1669140224211" duration="1483000" />
+      <workItem from="1669185787814" duration="1719000" />
+      <workItem from="1669187542819" duration="948000" />
+      <workItem from="1669188520465" duration="1669000" />
+      <workItem from="1669190222404" duration="1935000" />
+      <workItem from="1669193649995" duration="839000" />
+      <workItem from="1669194507586" duration="820000" />
+      <workItem from="1669195347841" duration="159000" />
+      <workItem from="1669195519158" duration="15000" />
+      <workItem from="1669195566990" duration="157000" />
+      <workItem from="1669195791630" duration="41000" />
+      <workItem from="1669196557266" duration="29865000" />
+      <workItem from="1669235937339" duration="3543000" />
+      <workItem from="1669242829548" duration="199000" />
+      <workItem from="1669272298492" duration="2553000" />
+      <workItem from="1669274890549" duration="1273000" />
+      <workItem from="1669276237753" duration="5336000" />
+      <workItem from="1669282337608" duration="10916000" />
+      <workItem from="1669293777583" duration="8353000" />
+      <workItem from="1669327903805" duration="441000" />
+      <workItem from="1669354763049" duration="337000" />
+      <workItem from="1669358568151" duration="3229000" />
+      <workItem from="1669362498434" duration="8000" />
+      <workItem from="1669381132135" duration="22309000" />
+      <workItem from="1669408663214" duration="4884000" />
     </task>
-    <task id="LOCAL-00001" summary="MainPage">
-      <created>1669389931898</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1669389931898</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Exhibitions">
-      <created>1669394009568</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1669394009568</updated>
-    </task>
-    <task id="LOCAL-00003" summary="MainPage">
-      <created>1669403397079</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1669403397080</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Questions">
-      <created>1669406803270</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1669406803270</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Tests">
-      <created>1669409658464</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1669409658464</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,12 +124,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Exhibitions" />
-    <MESSAGE value="MainPage" />
-    <MESSAGE value="Questions" />
-    <MESSAGE value="Tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tests" />
   </component>
 </project>
